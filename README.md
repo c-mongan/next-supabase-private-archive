@@ -47,7 +47,6 @@ This repo is intentionally small. The first version includes:
 Planned next:
 
 - Demo auth user creation script
-- Storage bucket setup script
 - Screenshots and live demo
 
 ## Getting Started
@@ -161,21 +160,27 @@ app/
   (archive)/
   admin/
   api/downloads/[fileId]/
+  api/previews/[fileId]/
 
 components/
   admin/
   archive/
   auth/
+  files/
   shell/
   ui/
 
 lib/
   access/
   auth/
+  files/
+  preview/
+  search/
   storage/
   supabase/
 
 supabase/
+  config.toml
   migrations/
   seed.sql
   tests/
@@ -194,4 +199,4 @@ supabase/
 
 ## License
 
-MIT. Add a `LICENSE` file before publishing.
+MIT.
