@@ -14,6 +14,9 @@ export function SiteHeader() {
           <Button asChild variant="ghost" href="/dashboard">
             Archive
           </Button>
+          <Button asChild variant="ghost" href="/search">
+            Search
+          </Button>
           <Button asChild variant="ghost" href="/admin">
             Admin
           </Button>

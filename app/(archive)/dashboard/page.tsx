@@ -6,7 +6,7 @@ export default async function DashboardPage() {
   const { supabase } = await requireUser();
   const { data } = await supabase
     .from("visible_archive_files")
-    .select("id,title,description,published_at")
+    .select("id,title,description,filename,collection_name,published_at")
     .order("published_at", { ascending: false });
   const files = data ?? [];
 

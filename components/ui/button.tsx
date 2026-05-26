@@ -20,7 +20,7 @@ const variants = {
 export function Button(props: ButtonProps | LinkButtonProps) {
   const variant = props.variant ?? "primary";
   const className = cn(
-    "inline-flex h-10 items-center justify-center rounded-md px-4 text-sm font-semibold transition",
+    "inline-flex h-10 items-center justify-center gap-2 rounded-md px-4 text-sm font-semibold transition",
     variants[variant],
     props.className,
   );
