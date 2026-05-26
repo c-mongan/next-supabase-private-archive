@@ -5,6 +5,8 @@ export type ArchiveFile = {
   id: string;
   title: string;
   description: string | null;
+  filename: string;
+  collection_name: string | null;
   published_at: string | null;
 };
 
@@ -29,6 +31,9 @@ export function FileList({ files }: { files: ArchiveFile[] }) {
             <FileText className="h-5 w-5 text-teal-700" />
             <span>
               <span className="block font-semibold text-slate-950">{file.title}</span>
+              <span className="mt-1 block text-sm text-slate-500">
+                {file.collection_name ?? "Archive"} · {file.filename}
+              </span>
               {file.description ? (
                 <span className="mt-1 block text-sm text-slate-600">{file.description}</span>
               ) : null}

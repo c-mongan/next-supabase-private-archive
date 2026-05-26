@@ -35,18 +35,19 @@ This repo is intentionally small. The first version includes:
 - Public landing page
 - Login and signup screens
 - Member archive dashboard
+- Archive search across metadata and extracted text chunks
 - File detail page with protected download link
+- Protected PDF and Office file previews
 - Admin overview
 - Admin files, users, and access group screens
+- Admin file binary replacement through signed upload URLs
 - Supabase SSR client helpers
 - Initial Postgres schema, RLS policies, and seed records
 
 Planned next:
 
-- Admin upload form
 - Demo auth user creation script
 - Storage bucket setup script
-- Access verification script
 - Screenshots and live demo
 
 ## Getting Started
@@ -126,6 +127,32 @@ Access works like this:
 
 The app never exposes raw private storage paths as public URLs.
 
+## Search And Previews
+
+The template includes a generic search spine:
+
+- `archive_files.search_vector` for title, filename, and description search.
+- `file_text_chunks.search_vector` for extracted document text.
+- RLS policies on both tables, so search results stay scoped to the signed-in
+  user.
+
+The preview route at `/api/previews/[fileId]` uses the same row visibility model
+as downloads. PDF files stream inline. Office files are converted to PDF when
+LibreOffice is available, otherwise modern Office files use a lightweight
+HTML/text fallback through `officeparser`.
+
+## Admin Replacement Uploads
+
+Admins can replace a file binary without exposing the service role key to the
+browser:
+
+1. The server verifies admin access and creates a signed upload URL.
+2. The browser uploads directly to the private Storage bucket.
+3. The server checks the uploaded object metadata.
+4. The file row is updated with filename, MIME type, size, storage path, and
+   optional SHA-256 hash.
+5. An audit event records the replacement.
+
 ## Repository Shape
 
 ```txt
@@ -162,6 +189,8 @@ supabase/
 - Keep RLS enabled on all public tables.
 - Avoid authorization decisions based on user-editable metadata.
 - Treat the admin screens as a starting point, not a finished CMS.
+- Install LibreOffice and set `SOFFICE_BIN` if you want high-fidelity Office
+  previews in production.
 
 ## License
 

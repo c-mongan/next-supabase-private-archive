@@ -1,8 +1,14 @@
 # Scripts
 
-This template intentionally starts with documentation before automation.
+This template intentionally starts with small verification scripts before heavy
+automation.
 
-Useful first scripts to add:
+Available scripts:
+
+- `verify-template.mjs` checks that the template still has the core security
+  and feature files expected by the README.
+
+Useful next scripts to add:
 
 - `seed-demo.mjs` to create demo auth users and attach them to access groups.
 - `verify-access.mjs` to assert that member users can only see/download allowed files.

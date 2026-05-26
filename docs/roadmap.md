@@ -7,10 +7,13 @@
 - RLS-backed archive schema
 - Protected download route
 - Basic member and admin screens
+- Archive search
+- Protected file previews
+- Admin replacement uploads
 
 ## v0.2
 
-- Admin file upload
+- New file upload
 - User access group assignment
 - Demo auth users
 - Storage bucket setup

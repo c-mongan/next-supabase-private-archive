@@ -11,7 +11,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "verify:template": "node scripts/verify-template.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.3",
@@ -19,6 +20,7 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.468.0",
     "next": "^16.2.6",
+    "officeparser": "^7.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^3.5.0",
