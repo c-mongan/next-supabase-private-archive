@@ -2,10 +2,9 @@
 
 A production-informed starter for private document archives.
 
-This is the open-source starter extracted from the architecture behind
-[PIP 2.0](https://pip-2-0-staging.vercel.app/), a private archive site currently
-in development. It keeps the reusable Next.js/Supabase patterns without PIP
-data, branding, or project-specific workflows.
+This is an open-source starter extracted from the architecture of a private
+document-archive site. It keeps the reusable Next.js/Supabase patterns without
+any client data, branding, or project-specific workflows.
 
 It is built for teams that need member-only documents, access-group permissions,
 admin-managed files, and protected downloads without adopting a full CMS.
